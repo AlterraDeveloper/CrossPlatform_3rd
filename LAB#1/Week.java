@@ -10,6 +10,7 @@ public class Week{
  		num = Integer.parseInt(scan.nextLine());
 		}catch(NumberFormatException ex){ }
 
+		show("First");
 		switch(num){
 		case 1: System.out.println("Понедельник");break;
 		case 2: System.out.println("Вторник");break;
@@ -18,7 +19,20 @@ public class Week{
 		case 5: System.out.println("Пятница");break;
 		case 6: System.out.println("Суббота");break;
 		case 7: System.out.println("Воскресенье");break;
-		default:  System.out.println("ОШИБКА ВВОДА!!!!!!");
+		default:  System.out.println("Ошибка ввода!!!!!!");
 		}
+		getch();
+	}
+
+	public static void show(String msg){
+		System.out.println("==========");
+		System.out.println(msg);
+		System.out.println("==========");
+	}
+
+	public static void getch(){
+		try{
+			System.in.read();
+		}catch (Exception e){}		
 	}
 }
