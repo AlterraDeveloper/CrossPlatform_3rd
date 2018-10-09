@@ -2,7 +2,9 @@ import java.util.*;
 import java.lang.*;
 
 class MyStruct {
+
     public static void main(String[] args) {
+
         show("First");
         Scanner scan = new Scanner(System.in);
         int[] arr = new int[scan.nextInt()];
@@ -50,6 +52,7 @@ class MyStruct {
         System.out.print("\nSorted ArrayList : ");
         for (Object e : arrayList)
             System.out.print(e + " ");
+        System.out.println();
         getch();
 
         show("Fifth");
@@ -59,6 +62,23 @@ class MyStruct {
         while(iterator.hasNext())
             System.out.print(iterator.next() + " ");
         getch();
+
+        show("Sixth");
+        System.out.println("Index of object \"Tim\" in ArrayList is : "
+                + (arrayList.indexOf("Tim") >= 0 ? arrayList.indexOf("Tim") : "object not found"));
+        System.out.println("Is HashMap contains value \"Bob\"? " + (hashMap.containsValue("Bob")==true ? "Yes" : "No"));
+        System.out.println("Is HashMap contains key \"35\"? " + (hashMap.containsKey(35)==true ? "Yes" : "No"));
+        getch();
+
+         show("Seventh");
+
+         getch();
+
+        // show("Eighth");
+        // getch();
+
+        // show("Ninth");
+        // getch();
     }
 
 
