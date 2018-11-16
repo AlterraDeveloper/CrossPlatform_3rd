@@ -1,0 +1,11 @@
+Capturing groups are so named because, during a match, each 
+subsequence of the input sequence 
+that matches such 
+a
+group is saved. 
+The captured subsequence 
+may be used later in the expression, via 
+a
+back reference, 
+and may also be retrieved from the matcher 
+once the match operation is complete. 
