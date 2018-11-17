@@ -1,16 +1,17 @@
 package home2;
 import java.text.NumberFormat;
+import java.io.*;
 
 /**
 Class contains methods for manipulating with countries.
 @author Kiselev E.D.
 @version 1.0
 */
-public class Country{
+public class Country implements Serializable{
 	private String name;
 	private String capital;
 	private double square;
-	private long population;
+	transient long population;
 
 	/**
 	Constructor without params
