@@ -52,10 +52,10 @@ public class MyIO {
   getch();
 
   show("sixth");
+  List < Integer > byteArray = new ArrayList < Integer > ();
+  int nextByte = -1;
   try {
    FileInputStream fileInputStream = new FileInputStream(new File("input.txt"));
-   ArrayList byteArray = new ArrayList();
-   int nextByte = -1;
    while (true) {
     try {
      nextByte = fileInputStream.read();
@@ -68,7 +68,60 @@ public class MyIO {
   } catch (FileNotFoundException ex) {}
   getch();
 
+  show("seventh");
+  byteArray.clear();
+  try {
+   RandomAccessFile randomAccessFile = new RandomAccessFile("input.txt", "r");
+   try {
+    randomAccessFile.seek(20);
+    nextByte = -1;
+    while (true) {
+     nextByte = randomAccessFile.read();
+     if (nextByte == -1) break;
+     else byteArray.add(nextByte);
+    }
+    for (int ch: byteArray)
+     System.out.print((char) ch);
+   } catch (IOException ex) {}
+  } catch (FileNotFoundException ex) {}
+  getch();
+
+  show("eighth");
+  try {
+   java.util.zip.ZipFile zipFile = new java.util.zip.ZipFile("arc.zip");
+   for (Enumeration < java.util.zip.ZipEntry > e = (Enumeration < java.util.zip.ZipEntry > ) zipFile.entries(); e.hasMoreElements();) {
+    java.util.zip.ZipEntry tmp = e.nextElement();
+    if (!tmp.isDirectory())
+     System.out.println(tmp.getName() + "  Size: " + tmp.getSize() + " bytes  Compressed size: " + tmp.getCompressedSize() + " bytes");
+   }
+  } catch (IOException ioex) {
+   ioex.printStackTrace();
+  }
+  getch();
+
+
+  show("ninth");
+  try {
+   File currentDir = new File("/home/altersoft/alterra/3_rd/CrossPlatform_3rd/pract5");
+   java.util.zip.ZipOutputStream zipOutputStream =
+    new java.util.zip.ZipOutputStream(new FileOutputStream(new File("new.zip")));
+   for (String file: currentDir.list()) {
+    if (file.contains("zip")) continue;
+    else {
+     java.util.zip.ZipEntry tmp = new java.util.zip.ZipEntry(file);
+     zipOutputStream.putNextEntry(tmp);
+     zipOutputStream.closeEntry();
+    }
+   }
+   zipOutputStream.close();
+   System.out.println("Successfully created archive new.zip");
+  } catch (IOException ioex) {
+   ioex.printStackTrace();
+  }
+  getch();
+
  }
+
 
  static void show(String s) {
   System.out.println("---------------------------");
