@@ -6,7 +6,8 @@ public class ShowColors extends JFrame{
 public ShowColors(){
   super("Using Color and Font");
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  setSize(550,200);
+  setSize(550,225);
+  setResizable(false);
 
   Screen s = new Screen();
 
@@ -14,14 +15,6 @@ public ShowColors(){
 
   setVisible(true);
 }
-  //
-  // public void paint(Graphics g){
-  //     Window w = new Window(this);
-  //     g.setColor(Color.BLUE);
-  //     g.drawRect(5,5,100,20);
-  //     w.paint(g);
-  //     setContentPane((JPanel)w);
-  // }
 
   public static void main(String[] args) {
     ShowColors application = new ShowColors();
