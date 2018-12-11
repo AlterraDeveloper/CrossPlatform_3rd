@@ -39,7 +39,7 @@ public LineRectOvals(){
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   setSize(500,450);
   setResizable(false);
-  setBackground( Color.GRAY );
+  setBackground( new Color(168,166,165) );
   Screen s = new Screen();
 
   add(s);
