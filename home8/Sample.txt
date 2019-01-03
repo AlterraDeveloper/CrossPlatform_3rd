@@ -1,0 +1,8 @@
+Edit text for anything in the internet. 
+How to get job on alloction alligator.
+An engine that performs match operations on a character sequence by interpreting a Pattern.
+A matcher is created from a pattern by invoking the pattern's matcher method. Once created, a matcher can 
+be used to perform three different kinds of match
+Each of these methods returns a boolean indicating success or failure. More information about a successful match can be obtained by querying the state of the matcher.
+A matcher finds matches in a subset of its input called the region. By default, the region contains all of the matcher's input. The region can be modified via theregion method and queried via the regionStart and regionEnd methods. The way that the region boundaries interact with some pattern constructs can be changed. 
+See useAnchoringBounds and useTransparentBounds for more details.
