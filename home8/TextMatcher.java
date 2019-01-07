@@ -20,6 +20,7 @@ class TextMatcher{
             s = input.readLine();
             if(s == null) break;
             words.addAll(findWordsStartsWithVowel(s));
+
         }
         }catch(FileNotFoundException ex){
             ex.printStackTrace();
@@ -42,5 +43,9 @@ class TextMatcher{
 
     public static void main(String[] args) {
         System.out.println(findWordsStartsWithVowelInFile("Sample.txt"));
+
+
     }
+
+
 }
