@@ -1,4 +1,3 @@
-//package home2;
 import java.text.NumberFormat;
 import java.io.*;
 
