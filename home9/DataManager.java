@@ -39,6 +39,11 @@ public void addEntity(Country entity){
     data.add(entity);
 }
 
+public Country removeEntity(int index){
+    return data.remove(index);
+}
+
+
 public void saveYourself(String filePath){
     try{
 

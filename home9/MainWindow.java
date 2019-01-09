@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 public class MainWindow extends JFrame{
     JLabel cNameLabel,cCapitalLabel,cSquareLabel,cPopulationLabel;
     JTextField cNameTxt,cCapitalTxt,cSquareTxt,cPopulationTxt;
-    JButton saveBtn,deleteBtn;
+    JButton saveBtn,deleteBtn,resetBtn;
 
     MainWindow(){
         super("Info-Search System");
@@ -21,13 +21,14 @@ public class MainWindow extends JFrame{
         cSquareLabel = new JLabel("Country square (km^2) : ");
         cPopulationLabel  = new JLabel("Country population : ");
 
-        cNameTxt = new JTextField(20);
-        cCapitalTxt = new JTextField(20);
-        cSquareTxt = new JTextField(20);
-        cPopulationTxt = new JTextField(20);
+        cNameTxt = new JTextField(10);
+        cCapitalTxt = new JTextField(10);
+        cSquareTxt = new JTextField(10);
+        cPopulationTxt = new JTextField(10);
 
         saveBtn = new JButton("Save");
         deleteBtn = new JButton("Delete");
+        resetBtn = new JButton("Reset params");
 
         String[] countryParams = {"Name","Capital","Square","Population"};
         TableModel dataModel = new DefaultTableModel(countryParams,0);
@@ -49,6 +50,7 @@ public class MainWindow extends JFrame{
         add(deleteBtn);
 
         setLayout(new FlowLayout());
+        add(resetBtn);
         add(scrollpane);
 
         saveBtn.addActionListener(new ActionListener(){
@@ -74,8 +76,26 @@ public class MainWindow extends JFrame{
         });
 
         deleteBtn.addActionListener((ActionEvent event) -> {
-                 JOptionPane.showMessageDialog(null,"Deleted successfully!");
+                int[] selectedRows = table.getSelectedRows();
+                int offset = 0;
+                if(selectedRows.length > 0){
+                    for(int index : selectedRows){
+                        Country c = dataMngr.removeEntity(index-offset);
+                        if(c != null){
+                             offset++;
+                             table.setModel(loadDataToTable(table,dataMngr));
+                             JOptionPane.showMessageDialog(null,c.toString()+"\nDeleted successfully!");
+                        }
+                    }
+                }else JOptionPane.showMessageDialog(null,"Choose row(-s) in table for removing");
              });
+
+    resetBtn.addActionListener((ActionEvent event) ->{
+        cNameTxt.setText("");
+        cCapitalTxt.setText("");
+        cSquareTxt.setText("");
+        cPopulationTxt.setText("");
+    });
 
         setSize(500,500);
         setVisible(true);
